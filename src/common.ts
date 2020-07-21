@@ -21,3 +21,14 @@ const reverseArr = (arr: number[], k: number) => {
   const arr2 = arr.slice(0,-3);
   return arr1.concat(arr2);
 }
+
+/** 约瑟夫环,每隔k个砍死，问剩下那个 */
+
+const yuesefu = (nums: number, k: number) => {
+  let p = 0;
+  for(let i = 2;i <= nums; i++)
+  {
+    p = (p + k) % i;
+  }
+  return p + 1;
+}
