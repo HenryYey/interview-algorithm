@@ -32,3 +32,15 @@ const yuesefu = (nums: number, k: number) => {
   }
   return p + 1;
 }
+
+/** 判断版本号 如 1.2.3和1.4.1 */
+
+const isLatter = (ver1: string, ver2: string) => {
+  const first = ver1.split('.');
+  const second = ver2.split('.');
+
+  if (parseInt(first) > parseInt(second)) return true;
+  else if (parseInt(first) < parseInt(second)) return false;
+
+  return isLatter(first.slice(1).join(''), second.slice(1).join(''));
+}
