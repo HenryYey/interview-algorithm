@@ -73,5 +73,5 @@ const isLatter = (ver1: string, ver2: string) => {
   if (parseInt(first) > parseInt(second)) return true;
   else if (parseInt(first) < parseInt(second)) return false;
 
-  return isLatter(first.slice(1).join(''), second.slice(1).join(''));
+  return isLatter(first.slice(1).join('.'), second.slice(1).join('.'));
 }
