@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body>
+  <input type="text" id="fuck" >
+  <span id="shit"></span>
+</body>
+<script>
+  let user = {
+    name: "init"
+  };
+  const fuck = document.getElementById("fuck");
+  const shit = document.getElementById("shit");
+
+  fuck.value = user.name;
+  shit.textContent = user.name;  
+
+  Object.defineProperty(user, "name", {
+    get: function() {
+      console.log("get");
+    },
+    set: function(value) {
+      fuck.value = value;
+      shit.textContent = value;
+    }
+  });
+
+  console.log(fuck)
+  fuck.addEventListener('input', function(val) {
+    user.name = fuck.value
+  });
+</script>
+</html>
