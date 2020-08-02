@@ -21,3 +21,31 @@ const reverseArr = (arr: number[], k: number) => {
   const arr2 = arr.slice(0,-3);
   return arr1.concat(arr2);
 }
+/**
+ * 斐波那契数列
+ * @param n 序号
+ */
+const feibo = (n) => {
+  let n1 = 1, n2 = 1;
+  let sum = n1 + n2;
+  for (let i = 3; i < n; i++) {
+    sum = n1 + n2;
+    n1 = n2;
+    n2 = sum;
+  }
+  return sum;
+}
+
+/**
+ * 函数库里化
+ * @param fn 函数
+ */
+function curry(fn, ...args) {
+  if (args.length >= fn.length) {
+    return fn(...args);
+  }
+
+  return function(...args2) {
+    return curry(fn, ...args, ...args2);
+  }
+}
